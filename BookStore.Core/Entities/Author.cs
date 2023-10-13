@@ -1,9 +1,4 @@
 ﻿using BookStore.Core.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookStore.Core.Entities
 {
@@ -14,5 +9,6 @@ namespace BookStore.Core.Entities
         public string LastName { get; set;}
         // BookCount??
         // 1-n Book relationships
+        public virtual ICollection<Book> Books { get; set;}
     }
 }

@@ -12,5 +12,6 @@ namespace BookStore.Core.Entities
         public int Id { get; set; }
         public string GenreName { get; set; }
         // Book relationships
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

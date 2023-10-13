@@ -1,9 +1,4 @@
 ﻿using BookStore.Core.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookStore.Core.Entities
 {
@@ -16,8 +11,12 @@ namespace BookStore.Core.Entities
         public string ProfileImg { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; }
+
+        public bool? IsAdmin { get; set; }
         public DateTime? DeletedAt {  get; set; }
         // Library 1-N
+        public virtual ICollection<Library> Libraries { get; set; }
         // Books N-N
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

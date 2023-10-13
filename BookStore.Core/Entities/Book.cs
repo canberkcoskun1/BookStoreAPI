@@ -1,9 +1,5 @@
 ﻿using BookStore.Core.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace BookStore.Core.Entities
 {
@@ -16,8 +12,15 @@ namespace BookStore.Core.Entities
         public string Description { get; set; }
         public int ISBN { get; set; }
         // Author Relationships
+        public int AuthorId { get; set; }
+        public Author Author { get; set; }
         // Library relationships
+        public virtual ICollection<Library> Libraries { get; set; }
+
         // Genre relationships
+        public int GenreId { get; set; }
+        public Genre Genre { get; set; }
         // User Relationships
+        public virtual ICollection<User> Users { get; set; }
     }
 }
