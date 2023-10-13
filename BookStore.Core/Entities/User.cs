@@ -13,7 +13,7 @@ namespace BookStore.Core.Entities
         public bool IsDeleted { get; set; }
 
         public bool? IsAdmin { get; set; }
-        public DateTime? DeletedAt {  get; set; }
+        public DateTime? DeletedAt { get; set; }
         // Library 1-N
         public virtual ICollection<Library> Libraries { get; set; }
         // Books N-N

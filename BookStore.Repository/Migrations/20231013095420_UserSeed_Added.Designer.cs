@@ -4,6 +4,7 @@ using BookStore.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231013095420_UserSeed_Added")]
+    partial class UserSeed_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +90,7 @@ namespace BookStore.Repository.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("PublishedDate")
+                    b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
@@ -102,38 +105,6 @@ namespace BookStore.Repository.Migrations
                     b.HasIndex("GenreId");
 
                     b.ToTable("Books");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AuthorId = 1,
-                            BookName = "TEST1",
-                            Description = "Test",
-                            GenreId = 1,
-                            ISBN = 99299231,
-                            Title = "TEST"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AuthorId = 1,
-                            BookName = "TEST2",
-                            Description = "Test",
-                            GenreId = 2,
-                            ISBN = 12312345,
-                            Title = "TEST"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AuthorId = 1,
-                            BookName = "TEST3",
-                            Description = "Test",
-                            GenreId = 3,
-                            ISBN = 12343455,
-                            Title = "TEST"
-                        });
                 });
 
             modelBuilder.Entity("BookStore.Core.Entities.Genre", b =>

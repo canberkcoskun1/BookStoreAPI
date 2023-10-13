@@ -7,7 +7,7 @@ namespace BookStore.Core.Entities
     {
         public int Id { get; set; }
         public string BookName { get; set; }
-        public DateTime PublishedDate { get; set; }
+        public DateTime? PublishedDate { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int ISBN { get; set; }
