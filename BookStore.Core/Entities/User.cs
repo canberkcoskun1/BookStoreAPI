@@ -2,7 +2,7 @@
 
 namespace BookStore.Core.Entities
 {
-    public class User : IBaseEntity, IDeletable
+    public class User : IBaseEntity, IDeletable, IUpdatedAt
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -11,9 +11,9 @@ namespace BookStore.Core.Entities
         public string ProfileImg { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; }
-
         public bool? IsAdmin { get; set; }
         public DateTime? DeletedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         // Library 1-N
         public virtual ICollection<Library> Libraries { get; set; }
         // Books N-N

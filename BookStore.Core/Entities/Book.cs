@@ -1,5 +1,4 @@
 ﻿using BookStore.Core.Common;
-using System.Reflection;
 
 namespace BookStore.Core.Entities
 {

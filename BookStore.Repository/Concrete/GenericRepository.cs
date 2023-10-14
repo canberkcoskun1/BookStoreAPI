@@ -58,7 +58,12 @@ namespace BookStore.Repository.Concrete
 
         public void UpdateAsync(T entity)
         {
-            Task.FromResult(_dbSet.Update(entity));
+            if (entity is IUpdatedAt updatedAt) 
+            { 
+                updatedAt.UpdatedAt = DateTime.UtcNow;
+                Task.FromResult(_dbSet.Update(entity));
+            }
+
         }
 
         public IQueryable<T> Where(Expression<Func<T, bool>> expression)
