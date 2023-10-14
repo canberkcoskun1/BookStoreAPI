@@ -1,4 +1,4 @@
-﻿using BookStore.Core.Abstracts;
+﻿using BookStore.Core.Abstracts.Repositories;
 using BookStore.Core.Common;
 using BookStore.Repository.Context;
 using Microsoft.EntityFrameworkCore;

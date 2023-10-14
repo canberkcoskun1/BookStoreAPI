@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookStoreAPI.DTO\BookStoreAPI.DTO.csproj" />
+  </ItemGroup>
+
 </Project>
