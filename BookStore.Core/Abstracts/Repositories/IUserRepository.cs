@@ -10,6 +10,7 @@ namespace BookStore.Core.Abstracts.Repositories
         // Deactivate User
         Task<User> DeactivateUserByIdAsync(int id);
         // Make admin user
+        Task<User> MakeAdminAsync(string username);
 
     }
 }

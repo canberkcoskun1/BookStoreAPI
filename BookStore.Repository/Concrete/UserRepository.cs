@@ -34,6 +34,13 @@ namespace BookStore.Repository.Concrete
                 user.IsActive = false;
             return user;
         }
+        public async Task<User> MakeAdminAsync(string username)
+        {
+            var user = await _user.FirstOrDefaultAsync(x  => x.Username == username);
+            if(user != null)
+                user.IsAdmin = true;
+            return user;
+        }
 
     }
 }

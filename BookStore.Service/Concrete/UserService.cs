@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using BookStore.Core.Abstracts.Repositories;
 using BookStore.Core.Abstracts.Services;
+using BookStore.Core.Entities;
 using BookStore.Core.UnitOfWorks;
+using BookStoreAPI.DTO.User.Request;
 using BookStoreAPI.DTO.User.Response;
 
 namespace BookStore.Service.Concrete
@@ -44,6 +46,18 @@ namespace BookStore.Service.Concrete
             var user = _userRepository.GetAll().ToList();
             var userDto = _mapper.Map<List<GetUserDto>>(user);
             return userDto;
+        }
+        public async Task AddUserAsync(AddUserDto addUser)
+        {
+            var user = _mapper.Map<User>(addUser);
+            await _userRepository.AddAsync(user);
+            await _unitOfWork.CommitAsync();
+        }
+        public async Task MakeAdminUserAsync(string username)
+        {
+            var user = await _userRepository.MakeAdminAsync(username);
+            _userRepository.UpdateAsync(user);
+            await _unitOfWork.CommitAsync();
         }
     }
 }

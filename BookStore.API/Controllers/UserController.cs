@@ -1,4 +1,5 @@
 ﻿using BookStore.Core.Abstracts.Services;
+using BookStoreAPI.DTO.User.Request;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.API.Controllers
@@ -13,8 +14,9 @@ namespace BookStore.API.Controllers
             _userService = userService;
         }
         [HttpPost]
-        public async Task<IActionResult> AddUserAsync()
+        public async Task<IActionResult> AddUserAsync(AddUserDto addUser)
         {
+            await _userService.AddUserAsync(addUser);
             return Ok();
         }
         [HttpGet]
@@ -35,6 +37,18 @@ namespace BookStore.API.Controllers
             await _userService.DeactivateUserAsync(id);
             return Ok();
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsersAsync()
+        {
+            var user = _userService.GetAllUsersAsync();
+            return Ok(user);
+        }
+        [HttpPut]
+        public async Task<IActionResult> MakeAdminAsync(string username)
+        {
+            await _userService.MakeAdminUserAsync(username);
+            return Ok();
+        } 
         
     }
 }
