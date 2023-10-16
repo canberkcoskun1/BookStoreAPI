@@ -16,6 +16,9 @@ namespace BookStore.Core.Abstracts.Services
         Task DeactivateUserAsync(int id);
         // Make Admin
         Task MakeAdminUserAsync(string username);
+        // Soft Delete User
+        Task SoftDeleteUserAsync(int id);
+
         
     }
 }

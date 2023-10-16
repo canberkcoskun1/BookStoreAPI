@@ -59,5 +59,11 @@ namespace BookStore.Service.Concrete
             _userRepository.UpdateAsync(user);
             await _unitOfWork.CommitAsync();
         }
+        public async Task SoftDeleteUserAsync(int id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+            _userRepository.Remove(user);
+            await _unitOfWork.CommitAsync();
+        }
     }
 }

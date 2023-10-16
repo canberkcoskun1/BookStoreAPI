@@ -48,7 +48,13 @@ namespace BookStore.API.Controllers
         {
             await _userService.MakeAdminUserAsync(username);
             return Ok();
-        } 
+        }
+        [HttpDelete]
+        public async Task<IActionResult> RemoveUserAsync(int id)
+        {
+            await _userService.SoftDeleteUserAsync(id);
+            return Ok();
+        }
         
     }
 }
