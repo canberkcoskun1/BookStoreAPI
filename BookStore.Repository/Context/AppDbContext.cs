@@ -21,6 +21,8 @@ namespace BookStore.Repository.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            // Global Query Filters
+            modelBuilder.Entity<User>().HasQueryFilter(x => x.IsActive && !x.IsDeleted);
         }
     }
 }
