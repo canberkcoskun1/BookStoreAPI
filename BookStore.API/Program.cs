@@ -6,6 +6,8 @@ using BookStore.Repository.Context;
 using BookStore.Repository.UnitOfWorks;
 using BookStore.Service.Concrete;
 using BookStore.Service.Mapping;
+using BookStore.Service.Validations;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -17,6 +19,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//FluentValidation
+builder.Services.AddFluentValidation(validation => validation.RegisterValidatorsFromAssemblyContaining<AddUserValidator>());
 
 
 // Dependency Injections
