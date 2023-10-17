@@ -5,6 +5,7 @@ using BookStore.Repository.Concrete;
 using BookStore.Repository.Context;
 using BookStore.Repository.UnitOfWorks;
 using BookStore.Service.Concrete;
+using BookStore.Service.Filters;
 using BookStore.Service.Mapping;
 using BookStore.Service.Validations;
 using FluentValidation.AspNetCore;
@@ -15,7 +16,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+    .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -31,6 +34,7 @@ builder.Services.AddScoped(typeof(IService<>),typeof(Service<>));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+//Context
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
     x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>

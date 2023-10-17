@@ -42,5 +42,15 @@ namespace BookStore.Repository.Concrete
             return user;
         }
 
+        //public async Task<IEnumerable<UsersWithBooksDto>> GetUsersWithBookCountAsync()
+        //{
+        //    return await _user.Select(x => new UsersWithBooksDto
+        //    {
+        //        Username = x.Username,
+        //        BookCount = x.Books.Count
+        //    }).ToListAsync();
+        //}
+
+        
     }
 }

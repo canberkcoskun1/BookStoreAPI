@@ -65,5 +65,10 @@ namespace BookStore.Service.Concrete
             _userRepository.Remove(user);
             await _unitOfWork.CommitAsync();
         }
+
+        //public async Task<IEnumerable<UsersWithBooksDto>> GetUsersWithBooksAsync()
+        //{
+        //    return await _userRepository.GetUsersWithBookCountAsync();
+        //}
     }
 }

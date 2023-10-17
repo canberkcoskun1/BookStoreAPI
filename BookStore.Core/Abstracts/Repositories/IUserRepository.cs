@@ -1,4 +1,5 @@
 ﻿using BookStore.Core.Entities;
+using BookStoreAPI.DTO.User.Response;
 
 namespace BookStore.Core.Abstracts.Repositories
 {
@@ -11,6 +12,7 @@ namespace BookStore.Core.Abstracts.Repositories
         Task<User> DeactivateUserByIdAsync(int id);
         // Make admin user
         Task<User> MakeAdminAsync(string username);
+        //Task <IEnumerable<UsersWithBooksDto>> GetUsersWithBookCountAsync();
 
     }
 }
