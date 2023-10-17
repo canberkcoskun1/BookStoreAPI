@@ -24,7 +24,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //FluentValidation
-builder.Services.AddFluentValidation(validation => validation.RegisterValidatorsFromAssemblyContaining<AddUserValidator>());
+builder.Services.AddFluentValidation(validation => {
+    validation.RegisterValidatorsFromAssemblyContaining<AddUserValidator>();
+    validation.RegisterValidatorsFromAssemblyContaining<UpdateUserValidator>();
+    });
+
 
 
 // Dependency Injections
