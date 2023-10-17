@@ -66,6 +66,21 @@ namespace BookStore.Service.Concrete
             await _unitOfWork.CommitAsync();
         }
 
+        public async Task<GetUserDto> UpdateUserAsync(int id, UpdateUserDto updateUser)
+        {
+            var user = await _userRepository.FindUserByIdAsync(id);
+            if(user != null)
+            {
+                _mapper.Map(updateUser,user);
+                _userRepository.UpdateAsync(user);
+                await _unitOfWork.CommitAsync();
+                var userDto = _mapper.Map<GetUserDto>(user);
+                return userDto;
+            }
+            return null;
+            // Exception will be added.
+        }
+
         //public async Task<IEnumerable<UsersWithBooksDto>> GetUsersWithBooksAsync()
         //{
         //    return await _userRepository.GetUsersWithBookCountAsync();

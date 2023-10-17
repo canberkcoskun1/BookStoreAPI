@@ -18,6 +18,8 @@ namespace BookStore.Core.Abstracts.Services
         Task MakeAdminUserAsync(string username);
         // Soft Delete User
         Task SoftDeleteUserAsync(int id);
+        // Update User
+        Task<GetUserDto> UpdateUserAsync(int id, UpdateUserDto updateUser);
         //Task<IEnumerable<UsersWithBooksDto>> GetUsersWithBooksAsync();
 
         

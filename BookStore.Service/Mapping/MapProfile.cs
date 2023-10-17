@@ -11,6 +11,7 @@ namespace BookStore.Service.Mapping
         {
             CreateMap<User, GetUserDto>().ReverseMap();
             CreateMap<User, AddUserDto>().ReverseMap();
+            CreateMap<User, UpdateUserDto>().ReverseMap();
         }
     }
 }

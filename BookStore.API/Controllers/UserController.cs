@@ -1,5 +1,6 @@
 ﻿using BookStore.Core.Abstracts.Services;
 using BookStoreAPI.DTO.User.Request;
+using BookStoreAPI.DTO.User.Response;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.API.Controllers
@@ -55,7 +56,12 @@ namespace BookStore.API.Controllers
             await _userService.SoftDeleteUserAsync(id);
             return Ok();
         }
-        
+        [HttpPut]
+        public async Task<ActionResult<GetUserDto>> UpdateUserAsync(int id, UpdateUserDto updatedUser)
+        {
+            var user = await _userService.UpdateUserAsync(id, updatedUser);
+            return Ok(user);
+        }
         
         
         
