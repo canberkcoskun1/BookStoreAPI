@@ -1,3 +1,4 @@
+using BookStore.API.Middlewares;
 using BookStore.Core.Abstracts.Repositories;
 using BookStore.Core.Abstracts.Services;
 using BookStore.Core.UnitOfWorks;
@@ -59,6 +60,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+//Middleware
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseAuthorization();
 
