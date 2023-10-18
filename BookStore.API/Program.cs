@@ -38,6 +38,8 @@ builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository
 builder.Services.AddScoped(typeof(IService<>),typeof(Service<>));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
 
 //Context
 builder.Services.AddDbContext<AppDbContext>(x =>

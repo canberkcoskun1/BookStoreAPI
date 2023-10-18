@@ -42,7 +42,7 @@ namespace BookStore.API.Middlewares
 
                 response.StatusCode = (int)statusCode;
                 var result = CustomResponseDto.Fail(err.Message, statusCode);
-                await response.WriteAsJsonAsync(JsonSerializer.Serialize(result));
+                await response.WriteAsync(JsonSerializer.Serialize(result));
                 _logger.LogError($"Error: {err.Message}");
             }
         }
