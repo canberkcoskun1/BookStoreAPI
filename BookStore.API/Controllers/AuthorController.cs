@@ -21,5 +21,11 @@ namespace BookStore.API.Controllers
             var author = await _authorService.GetAuthorsByIdAsync(id);
             return Ok(CustomResponseDto.Success(author, HttpStatusCode.OK));
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAuthorsByName(string name)
+        {
+            var author = await _authorService.GetAuthorsByNameAsync(name);
+            return Ok(CustomResponseDto.Success(author, HttpStatusCode.OK));
+        }
     }
 }

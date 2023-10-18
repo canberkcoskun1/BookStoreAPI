@@ -14,13 +14,13 @@ namespace BookStore.Repository.Concrete
         }
         public async Task<Author> FindAuthorByIdAsync(int id)
         {
-            var author = await _author.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var author = await _author.Include(a => a.Books).Where(x => x.Id == id).FirstOrDefaultAsync();
             return author;
         }
 
         public async Task<Author> FindAuthorByNameAsync(string name)
         {
-            var author = await _author.Where(x => x.FirstName == name).FirstOrDefaultAsync();
+            var author = await _author.Include(a => a.Books).Where(x => x.FirstName == name).FirstOrDefaultAsync();
             return author;
         }
     }

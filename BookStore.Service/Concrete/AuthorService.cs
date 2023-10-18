@@ -17,6 +17,7 @@ namespace BookStore.Service.Concrete
             _uow = uow;
             _repository = repository;
             _mapper = mapper;
+
         }
         public Task<List<GetAuthorsDto>> GetAllAuthorsAsync()
         {
@@ -28,7 +29,9 @@ namespace BookStore.Service.Concrete
             var author = await _repository.FindAuthorByIdAsync(id);
             if (author is null)
                 throw new NotFoundException($"AuthorId: {id} not found.");
+
             var authorDto = _mapper.Map<GetAuthorsDto>(author);
+
             return authorDto;
         }
 
