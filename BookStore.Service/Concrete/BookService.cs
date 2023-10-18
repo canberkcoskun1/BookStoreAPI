@@ -52,5 +52,14 @@ namespace BookStore.Service.Concrete
             var bookDto = _mapper.Map<GetBooksDto>(books);
             return bookDto;
         }
+
+        public async Task RemoveBookAsync(int id)
+        {
+            var books = await _bookRepository.GetByIdAsync(id);
+            if (books == null)
+                throw new NotFoundException($"BookId: {id} not found.");
+            _bookRepository.Remove(books);
+            await _uow.CommitAsync();
+        }
     }
 }
