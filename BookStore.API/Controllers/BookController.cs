@@ -1,8 +1,6 @@
-﻿using BookStore.Core.Abstracts.Repositories;
-using BookStore.Core.Abstracts.Services;
+﻿using BookStore.Core.Abstracts.Services;
 using BookStoreAPI.DTO;
 using BookStoreAPI.DTO.Book.Request;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -27,7 +25,7 @@ namespace BookStore.API.Controllers
         public async Task<IActionResult> AddBooksAsync(AddBooksDto addBooks)
         {
             await _bookService.AddBookAsync(addBooks);
-            return Ok(CustomResponseDto.Success(addBooks, HttpStatusCode.OK));
+            return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
         }
     }
 }

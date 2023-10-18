@@ -8,6 +8,7 @@ namespace BookStore.Repository.Configuration
     {
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
+            builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.GenreName).IsRequired().HasMaxLength(20);
         }
     }

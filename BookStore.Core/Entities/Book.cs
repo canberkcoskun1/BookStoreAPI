@@ -2,7 +2,7 @@
 
 namespace BookStore.Core.Entities
 {
-    public class Book : IBaseEntity
+    public class Book : IBaseEntity, IDeletable
     {
         public int Id { get; set; }
         public string BookName { get; set; }
@@ -10,6 +10,8 @@ namespace BookStore.Core.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public int ISBN { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime? DeletedAt { get; set; }
         // Author Relationships
         public int AuthorId { get; set; }
         public Author Author { get; set; }
