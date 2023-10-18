@@ -43,5 +43,13 @@ namespace BookStore.Service.Concrete
             var authorDto = _mapper.Map<GetAuthorsDto>(author);
             return authorDto;
         }
+        public async Task RemoveAuthorAsync(int id)
+        {
+            var author = await _repository.FindAuthorByIdAsync(id);
+            if (author is null)
+                throw new NotFoundException($"AuthorId: {id} not found");
+            _repository.Remove(author);
+            await _uow.CommitAsync();
+        }
     }
 }

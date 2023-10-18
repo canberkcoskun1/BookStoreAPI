@@ -7,5 +7,6 @@ namespace BookStore.Core.Abstracts.Services
         Task<GetAuthorsDto> GetAuthorsByIdAsync(int id);
         Task<GetAuthorsDto> GetAuthorsByNameAsync(string name);
         Task<List<GetAuthorsDto>> GetAllAuthorsAsync();
+        Task RemoveAuthorAsync(int id);
     }
 }

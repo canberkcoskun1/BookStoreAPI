@@ -27,5 +27,11 @@ namespace BookStore.API.Controllers
             var author = await _authorService.GetAuthorsByNameAsync(name);
             return Ok(CustomResponseDto.Success(author, HttpStatusCode.OK));
         }
+        [HttpDelete]
+        public async Task<IActionResult> RemoveAuthorAsync(int id)
+        {
+            await _authorService.RemoveAuthorAsync(id);
+            return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
+        }
     }
 }
