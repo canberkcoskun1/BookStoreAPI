@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BookStore.Core.Entities;
 
 namespace BookStore.Core.Abstracts.Repositories
 {
-    public interface IGenreRepository
+    public interface IGenreRepository : IGenericRepository<Genre>
     {
+        Task<Genre> FindGenreByIdAsync(int id);
+        Task<Genre> FindGenreByNameAsync(string name);
+        // Genre with books
+        Task<List<Genre>> GetAllGenreWithBooksAsync();
     }
 }
