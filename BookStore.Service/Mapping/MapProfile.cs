@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookStore.Core.Entities;
-using BookStoreAPI.DTO.Author;
+using BookStoreAPI.DTO.Author.Request;
+using BookStoreAPI.DTO.Author.Response;
 using BookStoreAPI.DTO.Book.Request;
 using BookStoreAPI.DTO.Book.Response;
 using BookStoreAPI.DTO.User.Request;
@@ -18,6 +19,7 @@ namespace BookStore.Service.Mapping
             CreateMap<Book, GetBooksDto>().ReverseMap();
             CreateMap<Book, AddBooksDto>().ReverseMap();
             CreateMap<Author, GetAuthorsDto>().ReverseMap();
+            CreateMap<Author, AddAuthorDto>().ReverseMap();
         }
     }
 }

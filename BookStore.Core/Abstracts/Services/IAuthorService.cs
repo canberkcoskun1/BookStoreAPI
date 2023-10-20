@@ -1,4 +1,5 @@
-﻿using BookStoreAPI.DTO.Author;
+﻿using BookStoreAPI.DTO.Author.Request;
+using BookStoreAPI.DTO.Author.Response;
 
 namespace BookStore.Core.Abstracts.Services
 {
@@ -8,5 +9,7 @@ namespace BookStore.Core.Abstracts.Services
         Task<GetAuthorsDto> GetAuthorsByNameAsync(string name);
         Task<List<GetAuthorsDto>> GetAllAuthorsAsync();
         Task RemoveAuthorAsync(int id);
+        Task AddAuthorAsync(AddAuthorDto addAuthor);
+
     }
 }

@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using BookStore.Core.Abstracts.Repositories;
 using BookStore.Core.Abstracts.Services;
+using BookStore.Core.Entities;
 using BookStore.Core.UnitOfWorks;
 using BookStore.Service.Exceptions;
-using BookStoreAPI.DTO.Author;
-using Microsoft.EntityFrameworkCore;
+using BookStoreAPI.DTO.Author.Request;
+using BookStoreAPI.DTO.Author.Response;
 
 namespace BookStore.Service.Concrete
 {
@@ -20,6 +21,14 @@ namespace BookStore.Service.Concrete
             _mapper = mapper;
 
         }
+
+        public async Task AddAuthorAsync(AddAuthorDto addAuthor)
+        {
+            var user = _mapper.Map<Author>(addAuthor);
+            await _authorRepository.AddAsync(user);
+            await _uow.CommitAsync();
+        }
+
         public async Task<List<GetAuthorsDto>> GetAllAuthorsAsync()
         {
             var authors = await _authorRepository.GetAllAuthorsWithBooksAsync();

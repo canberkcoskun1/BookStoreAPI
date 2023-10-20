@@ -1,6 +1,6 @@
 ﻿using BookStoreAPI.DTO.Book.Response;
 
-namespace BookStoreAPI.DTO.Author
+namespace BookStoreAPI.DTO.Author.Response
 {
     public class GetAuthorsDto
     {
