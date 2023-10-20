@@ -1,6 +1,7 @@
 ﻿using BookStore.Core.Abstracts.Services;
 using BookStore.Core.Entities;
 using BookStoreAPI.DTO;
+using BookStoreAPI.DTO.Genre.Request;
 using BookStoreAPI.DTO.Genre.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,18 @@ namespace BookStore.API.Controllers
         {
             var genres = await _genreService.GetAllGenreWithBooksAsync();
             return Ok(CustomResponseDto.Success(genres,HttpStatusCode.OK));
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddGenreAsync(AddGenreDto addGenre)
+        {
+            await _genreService.AddGenreAsync(addGenre);
+            return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
+        }
+        [HttpDelete]
+        public async Task<IActionResult> RemoveGenreAsync(int id)
+        {
+            await _genreService.SoftDeleteGenreAsync(id);
+            return Ok(CustomResponseDto.Success(null,HttpStatusCode.OK));
         }
     }
 }

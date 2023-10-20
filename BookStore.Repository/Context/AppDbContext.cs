@@ -23,6 +23,7 @@ namespace BookStore.Repository.Context
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             // Global Query Filters
             modelBuilder.Entity<User>().HasQueryFilter(x => x.IsActive && !x.IsDeleted);
+            modelBuilder.Entity<Genre>().HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }
