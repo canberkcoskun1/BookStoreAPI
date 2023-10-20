@@ -1,34 +1,37 @@
 ﻿using AutoMapper;
+using BookStore.Core.Abstracts.Repositories;
 using BookStore.Core.Abstracts.Services;
 using BookStoreAPI.DTO.Genre.Response;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Service.Concrete
 {
     public class GenreService : IGenreService
     {
-        private readonly IGenreService _genreService;
+        private readonly IGenreRepository _genreRepository;
         private readonly IMapper _mapper;
-        public GenreService(IGenreService genreService, IMapper mapper)
+        public GenreService(IGenreRepository genreRepository, IMapper mapper)
         {
-            _genreService = genreService;
+            _genreRepository = genreRepository;
+            _mapper = mapper;
         }
         public async Task<GetGenreDto> FindGenreByIdAsync(int id)
         {
-            var genre = await _genreService.FindGenreByIdAsync(id);
+            var genre = await _genreRepository.FindGenreByIdAsync(id);
             var genreDto = _mapper.Map<GetGenreDto>(genre);
             return genreDto;
         }
 
         public async Task<GetGenreDto> FindGenreByNameAsync(string name)
         {
-            var genreByName = await _genreService.FindGenreByNameAsync(name);
+            var genreByName = await _genreRepository.FindGenreByNameAsync(name);
             var genreDto = _mapper.Map<GetGenreDto>(genreByName);
             return genreDto;
         }
 
         public async Task<List<GetGenreDto>> GetAllGenreAsync()
         {
-            var genres = await _genreService.GetAllGenreAsync();
+            var genres = await _genreRepository.GetAll().ToListAsync();
             var genresDto = _mapper.Map<List<GetGenreDto>>(genres);
             return genresDto;
         }

@@ -4,6 +4,7 @@ using BookStoreAPI.DTO.Author.Request;
 using BookStoreAPI.DTO.Author.Response;
 using BookStoreAPI.DTO.Book.Request;
 using BookStoreAPI.DTO.Book.Response;
+using BookStoreAPI.DTO.Genre.Response;
 using BookStoreAPI.DTO.User.Request;
 using BookStoreAPI.DTO.User.Response;
 
@@ -20,6 +21,7 @@ namespace BookStore.Service.Mapping
             CreateMap<Book, AddBooksDto>().ReverseMap();
             CreateMap<Author, GetAuthorsDto>().ReverseMap();
             CreateMap<Author, AddAuthorDto>().ReverseMap();
+            CreateMap<Genre, GetGenreDto>().ReverseMap();
         }
     }
 }
