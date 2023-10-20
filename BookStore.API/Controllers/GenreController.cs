@@ -36,6 +36,11 @@ namespace BookStore.API.Controllers
             var genres = await _genreService.GetAllGenreAsync();
             return Ok(CustomResponseDto.Success(genres, HttpStatusCode.OK));
         }
-
+        [HttpGet]
+        public async Task<IActionResult> GetAllGenresWithBooksAsync()
+        {
+            var genres = await _genreService.GetAllGenreWithBooksAsync();
+            return Ok(CustomResponseDto.Success(genres,HttpStatusCode.OK));
+        }
     }
 }

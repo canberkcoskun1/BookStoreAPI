@@ -35,5 +35,14 @@ namespace BookStore.Service.Concrete
             var genresDto = _mapper.Map<List<GetGenreDto>>(genres);
             return genresDto;
         }
+
+        public async Task<List<GetGenreWithBooksDto>> GetAllGenreWithBooksAsync()
+        {
+            var genres = await _genreRepository.GetAllGenreWithBooksAsync();
+            var genresDto = _mapper.Map<List<GetGenreWithBooksDto>>(genres);
+            return genresDto;
+        }
+
+        
     }
 }

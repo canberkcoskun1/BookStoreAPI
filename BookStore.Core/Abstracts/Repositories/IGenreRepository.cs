@@ -7,6 +7,6 @@ namespace BookStore.Core.Abstracts.Repositories
         Task<Genre> FindGenreByIdAsync(int id);
         Task<Genre> FindGenreByNameAsync(string name);
         // Genre with books
-        //Task<List<Genre>> GetAllGenreWithBooksAsync();
+        Task<List<Genre>> GetAllGenreWithBooksAsync();
     }
 }
