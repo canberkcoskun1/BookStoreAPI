@@ -24,6 +24,8 @@ namespace BookStore.Service.Concrete
         public async Task AddBookAsync(AddBooksDto addBooks)
         {
             var books = _mapper.Map<Book>(addBooks);
+            if (books.PublishedDate == null)
+                books.PublishedDate = DateTime.Now.Date;
             await _bookRepository.AddAsync(books);
             await _uow.CommitAsync();
         }
