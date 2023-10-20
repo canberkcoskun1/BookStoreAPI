@@ -1,6 +1,5 @@
 ﻿using BookStore.Core.Abstracts.Services;
 using BookStoreAPI.DTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -14,6 +13,13 @@ namespace BookStore.API.Controllers
         public AuthorController(IAuthorService authorService)
         {
             _authorService = authorService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAuthorsAsync()
+        {
+            var authors = await _authorService.GetAllAuthorsAsync();
+            return Ok(CustomResponseDto.Success(authors, HttpStatusCode.OK));
         }
         [HttpGet]
         public async Task<IActionResult> GetAuthorsByIdAsync(int id)

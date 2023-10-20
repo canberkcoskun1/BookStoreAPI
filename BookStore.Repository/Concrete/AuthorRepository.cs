@@ -23,5 +23,10 @@ namespace BookStore.Repository.Concrete
             var author = await _author.Include(a => a.Books).Where(x => x.FirstName == name).FirstOrDefaultAsync();
             return author;
         }
+
+        public async Task<List<Author>> GetAllAuthorsWithBooksAsync()
+        {
+            return await _author.Include(a => a.Books).ToListAsync();
+        }
     }
 }

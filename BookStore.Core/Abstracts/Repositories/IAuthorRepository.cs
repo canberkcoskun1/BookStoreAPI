@@ -6,6 +6,6 @@ namespace BookStore.Core.Abstracts.Repositories
     {
         Task<Author> FindAuthorByIdAsync(int id);
         Task<Author> FindAuthorByNameAsync(string name);
-
+        Task<List<Author>> GetAllAuthorsWithBooksAsync();
     }
 }
