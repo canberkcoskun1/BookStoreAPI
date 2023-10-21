@@ -40,6 +40,12 @@ namespace BookStore.API.Controllers
             var author = await _authorService.GetAuthorsByNameAsync(name);
             return Ok(CustomResponseDto.Success(author, HttpStatusCode.OK));
         }
+        [HttpGet]
+        public async Task<IActionResult> AuthorBookCountAsync(int id)
+        {
+            var author = await _authorService.GetAuthorsBookCountAsync(id);
+            return Ok(CustomResponseDto.Success(author, HttpStatusCode.OK));
+        }
         [HttpDelete]
         public async Task<IActionResult> RemoveAuthorAsync(int id)
         {

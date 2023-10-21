@@ -30,10 +30,10 @@ namespace BookStore.API.Controllers
             return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
         }
         [HttpGet]
-        public async Task<ActionResult<GetUserDto>> GetBooksByNameAsync(string username)
+        public async Task<IActionResult> GetBooksByNameAsync(string bookname)
         {
-            await _bookService.GetBookByNameAsync(username);
-            return Ok(CustomResponseDto.Success(username, HttpStatusCode.OK));
+            var books = await _bookService.GetBookByNameAsync(bookname);
+            return Ok(CustomResponseDto.Success(books, HttpStatusCode.OK));
         }
         [HttpPut]
         public async Task<ActionResult<GetBooksDto>> UpdateBooksAsync(int id, UpdateBooksDto updateBooks)
