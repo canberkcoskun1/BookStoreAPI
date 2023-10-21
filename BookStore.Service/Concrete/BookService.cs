@@ -63,5 +63,16 @@ namespace BookStore.Service.Concrete
             _bookRepository.Remove(books);
             await _uow.CommitAsync();
         }
+        public async Task<GetBooksDto> UpdateBookAsync(int id, UpdateBooksDto updateBooks)
+        {
+            var books = await _bookRepository.FindBookByIdAsync(id);
+            if (books == null)
+                throw new NotFoundException($"BookId: {id} not found.");
+            _mapper.Map(updateBooks,books);
+            _bookRepository.UpdateAsync(books);
+            await _uow.CommitAsync();
+            var bookDto = _mapper.Map<GetBooksDto>(books);
+            return bookDto;
+        }
     }
 }

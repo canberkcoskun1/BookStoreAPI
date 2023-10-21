@@ -1,6 +1,7 @@
 ﻿using BookStore.Core.Abstracts.Services;
 using BookStoreAPI.DTO;
 using BookStoreAPI.DTO.Book.Request;
+using BookStoreAPI.DTO.Book.Response;
 using BookStoreAPI.DTO.User.Response;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -33,6 +34,12 @@ namespace BookStore.API.Controllers
         {
             await _bookService.GetBookByNameAsync(username);
             return Ok(CustomResponseDto.Success(username, HttpStatusCode.OK));
+        }
+        [HttpPut]
+        public async Task<ActionResult<GetBooksDto>> UpdateBooksAsync(int id, UpdateBooksDto updateBooks)
+        {
+            await _bookService.UpdateBookAsync(id, updateBooks);
+            return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
         }
     }
 }

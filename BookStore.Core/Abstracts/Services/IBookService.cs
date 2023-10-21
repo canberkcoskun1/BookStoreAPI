@@ -12,5 +12,6 @@ namespace BookStore.Core.Abstracts.Services
 
         //Task <BookWithAuthorDto> GetBookByAuthorAsync();
         Task RemoveBookAsync(int id);
+        Task<GetBooksDto> UpdateBookAsync(int id, UpdateBooksDto updateBooks);
     }
 }
