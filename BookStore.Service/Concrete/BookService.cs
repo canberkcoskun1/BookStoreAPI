@@ -74,5 +74,6 @@ namespace BookStore.Service.Concrete
             var bookDto = _mapper.Map<GetBooksDto>(books);
             return bookDto;
         }
+       
     }
 }

@@ -71,7 +71,6 @@ namespace BookStore.Service.Concrete
             var authorDto = _mapper.Map<GetAuthorsBookCountDto>(author);
             authorDto.BookCount = author.Books.Count;
             return authorDto;
-            
         }
 
     }
