@@ -1,5 +1,6 @@
 ﻿using BookStore.Core.Abstracts.Services;
 using BookStoreAPI.DTO;
+using BookStoreAPI.DTO.Library.Request;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -20,6 +21,12 @@ namespace BookStore.API.Controllers
         {
             var library = await _libraryService.FindLibraryByIdAsync(id);
             return Ok(CustomResponseDto.Success(library,HttpStatusCode.OK));
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddLibraryByUserAsync(AddLibraryDto addLibrary)
+        {
+            await _libraryService.AddLibraryByUserAsync(addLibrary);
+            return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
         }
     }
 }

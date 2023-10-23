@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using BookStore.Core.Abstracts.Repositories;
 using BookStore.Core.Abstracts.Services;
+using BookStore.Core.Entities;
 using BookStore.Core.UnitOfWorks;
 using BookStore.Service.Exceptions;
 using BookStoreAPI.DTO.Book.Response;
+using BookStoreAPI.DTO.Library.Request;
 using BookStoreAPI.DTO.Library.Response;
 
 namespace BookStore.Service.Concrete
@@ -19,6 +21,14 @@ namespace BookStore.Service.Concrete
             _uow = uow;
             _mapper = mapper;
         }
+
+        public async Task AddLibraryByUserAsync(AddLibraryDto addLibrary)
+        {
+            var library = _mapper.Map<Library>(addLibrary);
+            await _libraryRepository.AddAsync(library);
+            await _uow.CommitAsync();
+        }
+
         public async Task<GetLibraryDto> FindLibraryByIdAsync(int id)
         {
             var library = await _libraryRepository.FindLibaryByIdAsync(id);
@@ -28,5 +38,6 @@ namespace BookStore.Service.Concrete
             libraryDto.Books = _mapper.Map<List<GetBooksDto>>(libraryDto.Books); 
             return libraryDto;
         }
+
     }
 }
