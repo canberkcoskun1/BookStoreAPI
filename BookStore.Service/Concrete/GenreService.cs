@@ -4,6 +4,7 @@ using BookStore.Core.Abstracts.Services;
 using BookStore.Core.Entities;
 using BookStore.Core.UnitOfWorks;
 using BookStore.Service.Exceptions;
+using BookStoreAPI.DTO.Book.Response;
 using BookStoreAPI.DTO.Genre.Request;
 using BookStoreAPI.DTO.Genre.Response;
 using Microsoft.EntityFrameworkCore;
@@ -67,6 +68,8 @@ namespace BookStore.Service.Concrete
             _genreRepository.Remove(genre);
             await _uow.CommitAsync();
         }
+        
+        
 
         
     }

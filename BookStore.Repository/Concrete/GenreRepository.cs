@@ -27,7 +27,7 @@ namespace BookStore.Repository.Concrete
         // Get genre with books
         public async Task<List<Genre>> GetAllGenreWithBooksAsync()
         {
-            return await _genre.Include(x => x.Books).ToListAsync();
+            return await _genre.Include(x => x.Books).ThenInclude(x => x.Author).ToListAsync();
         }
     }
 }

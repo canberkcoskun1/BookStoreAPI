@@ -93,9 +93,6 @@ namespace BookStore.Service.Concrete
 
         }
 
-        //public async Task<IEnumerable<UsersWithBooksDto>> GetUsersWithBooksAsync()
-        //{
-        //    return await _userRepository.GetUsersWithBookCountAsync();
-        //}
+        
     }
 }
