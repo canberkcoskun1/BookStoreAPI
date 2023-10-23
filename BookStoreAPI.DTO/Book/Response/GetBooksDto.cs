@@ -6,6 +6,7 @@
         public string Title { get; set; }
         public string Description { get; set; }
         public int ISBN { get; set; }
+        public int EditionNumber { get; set; }
         // AuthorId
         public int AuthorId { get; set; }
         // GenreId

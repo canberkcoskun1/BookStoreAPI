@@ -10,6 +10,7 @@ namespace BookStore.Core.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public int ISBN { get; set; }
+        public int EditionNumber { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedAt { get; set; }
         // Author Relationships
