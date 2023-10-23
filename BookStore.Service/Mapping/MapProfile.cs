@@ -30,6 +30,7 @@ namespace BookStore.Service.Mapping
             CreateMap<Author, GetAuthorsDto>().ReverseMap();
             CreateMap<Author, AddAuthorDto>().ReverseMap();
             CreateMap<Author, GetAuthorsBookCountDto>().ReverseMap();
+            CreateMap<Author, GetAuthorDetailDto>().ReverseMap();
 
             CreateMap<Genre, GetGenreDto>().ReverseMap();
             CreateMap<Genre, GetGenreWithBooksDto>().ReverseMap();

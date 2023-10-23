@@ -14,7 +14,7 @@ namespace BookStoreAPI.DTO.Book.Response
         public string Description { get; set; }
         public int ISBN { get; set; }
         public int EditionNumber { get; set; }
-        public GetAuthorsDto Author { get; set; }
+        public GetAuthorDetailDto Author { get; set; }
 
     }
 }
