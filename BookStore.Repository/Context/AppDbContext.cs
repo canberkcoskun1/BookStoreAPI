@@ -24,6 +24,7 @@ namespace BookStore.Repository.Context
             // Global Query Filters
             modelBuilder.Entity<User>().HasQueryFilter(x => x.IsActive && !x.IsDeleted);
             modelBuilder.Entity<Genre>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Author>().HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }
