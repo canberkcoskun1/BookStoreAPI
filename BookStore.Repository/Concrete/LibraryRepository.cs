@@ -18,5 +18,10 @@ namespace BookStore.Repository.Concrete
             var library = await _library.Include(x => x.User).ThenInclude(x => x.Books).Where(x => x.Id == id).FirstOrDefaultAsync();
             return library;
         }
+        public async Task<Library> GetLibraryBooksAndUserAsync(int id)
+        {
+            var library = await _library.Include(x => x.User).Include(x => x.Books).ThenInclude(x => x.Author).Where(x => x.Id == id).FirstOrDefaultAsync();
+            return library;
+        }
     }
 }

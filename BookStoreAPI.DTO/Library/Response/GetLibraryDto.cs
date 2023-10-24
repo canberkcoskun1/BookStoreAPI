@@ -7,6 +7,6 @@ namespace BookStoreAPI.DTO.Library.Response
     {
         public int Id { get; set; }
         public GetUserForLibraryDto User { get; set; }
-        public List<GetBooksDto> Books { get; set; }
+        public List<GetBooksWithAuthorsDto> Books { get; set; }
     }
 }

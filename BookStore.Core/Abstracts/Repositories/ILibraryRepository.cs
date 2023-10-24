@@ -10,6 +10,6 @@ namespace BookStore.Core.Abstracts.Repositories
     public interface ILibraryRepository : IGenericRepository<Library>
     {
         Task<Library> FindLibaryByIdAsync(int id);
-
+        Task<Library> GetLibraryBooksAndUserAsync(int id);
     }
 }

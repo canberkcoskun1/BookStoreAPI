@@ -44,8 +44,7 @@ namespace BookStore.Service.Concrete
 
         public async Task<GetLibraryDto> FindLibraryByIdAsync(int id)
         {
-            var library = await _libraryRepository.FindLibaryByIdAsync(id);
-            
+            var library = await _libraryRepository.GetLibraryBooksAndUserAsync(id);
             if (library is null)
                 throw new NotFoundException($"LibraryId: {id} not found");
             var libraryDto = _mapper.Map<GetLibraryDto>(library);
