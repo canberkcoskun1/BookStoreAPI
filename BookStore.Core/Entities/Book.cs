@@ -17,7 +17,7 @@ namespace BookStore.Core.Entities
         public int AuthorId { get; set; }
         public Author Author { get; set; }
         // Library relationships
-        public virtual ICollection<Library> Libraries { get; set; }
+        public virtual ICollection<Library> Libraries { get; set; } = new HashSet<Library>();   
 
         // Genre relationships
         public int GenreId { get; set; }

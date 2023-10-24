@@ -28,5 +28,11 @@ namespace BookStore.API.Controllers
             await _libraryService.AddLibraryByUserAsync(addLibrary);
             return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
         }
+        [HttpPost]
+        public async Task<IActionResult> AddBooksToLibraryAsync(int bookId, int libraryId)
+        {
+            await _libraryService.AddBooksToLibraryAsync(bookId, libraryId);
+            return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace BookStore.Core.Abstracts.Repositories
     {
         Task<Book> FindBookByIdAsync(int id);
         Task<Book> FindBookByNameAsync(string name);
+        
     }
 }

@@ -24,5 +24,6 @@ namespace BookStore.Repository.Concrete
             var bookName = await _books.Where(x => x.BookName == bookname).FirstOrDefaultAsync();
             return bookName;
         }
+        
     }
 }
