@@ -34,5 +34,11 @@ namespace BookStore.API.Controllers
             await _libraryService.AddBooksToLibraryAsync(bookId, libraryId);
             return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
         }
+        [HttpDelete]
+        public async Task<IActionResult> RemoveLibraryAsync(int id)
+        {
+            await _libraryService.RemoveLibraryAsync(id);
+            return Ok(CustomResponseDto.Success(null, HttpStatusCode.OK));
+        }
     }
 }

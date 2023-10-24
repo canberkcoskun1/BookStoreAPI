@@ -8,5 +8,6 @@ namespace BookStore.Core.Abstracts.Services
         Task<GetLibraryDto> FindLibraryByIdAsync(int id);   
         Task AddLibraryByUserAsync(AddLibraryDto addLibrary);
         Task AddBooksToLibraryAsync(int bookId, int libraryId);
+        Task RemoveLibraryAsync(int id);
     }
 }

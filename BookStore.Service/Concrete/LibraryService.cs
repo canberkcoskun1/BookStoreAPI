@@ -50,6 +50,14 @@ namespace BookStore.Service.Concrete
             var libraryDto = _mapper.Map<GetLibraryDto>(library);
             return libraryDto;
         }
+        public async Task RemoveLibraryAsync(int id)
+        {
+            var library = await _libraryRepository.FindLibaryByIdAsync(id);
+            if(library is null)
+                throw new NotFoundException($"LibraryId: {id} not found");
+            _libraryRepository.Remove(library);
+            await _uow.CommitAsync();
+        }
 
 
     }
